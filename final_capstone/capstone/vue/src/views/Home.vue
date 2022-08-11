@@ -1,12 +1,21 @@
 <template>
   <div class="home">
-    <h1>Home</h1>
-    <p>You must be authenticated to see this</p>
+    <map-component />
+    <title-bar/>
+    <truck-list/>
   </div>
 </template>
 
 <script>
+import MapComponent from "@/components/MapComponent.vue"
+import TitleBar from "@/components/TitleBar.vue"
+import TruckList from "@/components/TruckList.vue";
 export default {
-  name: "home"
+  name: "home-display",
+  components: {
+    MapComponent,
+    TitleBar,
+    TruckList
+  }
 };
 </script>

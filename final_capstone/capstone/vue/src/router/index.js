@@ -23,10 +23,10 @@ const router = new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
+      name: 'home-display',
       component: Home,
       meta: {
-        requiresAuth: true
+        requiresAuth: false
       }
     },
     {
