@@ -1,40 +1,43 @@
 <template>
-
   <div id="home-page">
-   
-   <!-- Everything below this is the NAV BAR -->
+    <!-- Everything below this is the NAV BAR -->
     <div class="nav-bar-area">
       <div class="the-logo">
         <p id="logo-font">What The Truck!</p>
         <div id="red-truck" class="fa-solid fa-truck-field"></div>
-      </div>  
+      </div>
 
       <form id="nav-bar-search">
-        <input id="nbs-input" type="text" name="q" placeholder="Search..." style="height: 20px"/>
+        <input
+          id="nbs-input"
+          type="text"
+          name="q"
+          placeholder="Search..."
+          style="height: 20px"
+        />
         <button id="nbs-button">Search</button>
       </form>
 
       <!-- <div id="menu-bar" class="fas fa-bars"></div> -->
       <nav class="navbar-links">
         <a class="nav-bar-buttons" href="#home">Home</a>
-        <a class="nav-bar-buttons" href="#gallery">Gallery</a>
+        <router-link v-bind:to="{ name: 'gallery' }">
+          <a class="nav-bar-buttons" href="#gallery">Gallery</a>
+        </router-link>
         <a class="nav-bar-buttons" href="#signup">Login/Signup</a>
       </nav>
     </div>
     <!-- Everything above this is the NAV BAR -->
-   
   </div>
-
 </template>
 
 <script>
 export default {
-  name: "home"
+  name: "home",
 };
 </script>
 
 <style>
-
 #home-page {
   height: 100vh;
 }
@@ -43,22 +46,22 @@ export default {
 
 .nav-bar-area {
   height: 12%;
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: 10;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
   padding: 0 9vw;
 }
 
 #login-area {
   display: flex;
   align-items: center;
-  flex-direction: column; 
+  flex-direction: column;
   justify-content: center;
   width: 100%;
   min-height: 100%;
@@ -67,13 +70,13 @@ export default {
 
 .the-logo {
   display: flex;
-  height: 100%;;
+  height: 100%;
 }
 
 #logo-font {
   font-size: 2.4rem;
   text-decoration: none;
-	text-transform: capitalize;
+  text-transform: capitalize;
   font-weight: 400;
   color: #666;
   font-family: "DynaPuff", cursive;
@@ -89,14 +92,14 @@ export default {
 }
 
 #nav-bar-search {
-    width: 300px;
-    height: 44px;
-    display: flex;
-    text-align: center;
-    flex-direction: row;
-    align-items: center;
-    border-radius: 5px;
-    background-color: rgb(208, 204, 204);
+  width: 300px;
+  height: 44px;
+  display: flex;
+  text-align: center;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 5px;
+  background-color: rgb(208, 204, 204);
 }
 
 #nbs-input {
@@ -106,7 +109,7 @@ export default {
 }
 
 #nbs-input::placeholder {
-  color: white; 
+  color: white;
   font-size: 1.1rem;
   text-indent: 10px;
 }
@@ -115,17 +118,16 @@ export default {
   width: 20%;
   border: none;
   background-color: rgb(208, 204, 204);
-  font-size: .6rem;
+  font-size: 0.6rem;
 }
 
 .nav-bar-buttons {
   font-family: "Nunito", sans-serif;
   font-size: 1.2rem;
-	margin-left: 2rem;
-	color: #666;
+  margin-left: 2rem;
+  color: #666;
   text-decoration: none;
 }
 
 /* Everything above this is the NAV BAR */
-
 </style>
