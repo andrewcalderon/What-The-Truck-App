@@ -22,14 +22,16 @@
       </nav>
     </div>
     <!-- Everything above this is the NAV BAR -->
-   
+   <Map></Map>
   </div>
 
 </template>
 
 <script>
+import Map from "../components/Map.vue";
 export default {
-  name: "home"
+    name: "home",
+    components: Map,
 };
 </script>
 
