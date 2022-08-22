@@ -3,8 +3,10 @@
 </template>
 
 <script>
+import Map from '../components/Map.vue'
 export default {
-    name: 'map-view'
+    name: 'map-view',
+    components: {Map}
 }
 </script>
 

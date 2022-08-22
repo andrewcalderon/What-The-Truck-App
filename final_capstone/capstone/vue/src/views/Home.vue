@@ -28,22 +28,21 @@
       </nav>
     </div>
     <!-- Everything above this is the NAV BAR -->
-<<<<<<< HEAD
    <Map></Map>
-=======
->>>>>>> fb83eeb72a9613415f7e9418b0878d32f2991d26
+<!-- =======
+>>>>>>> fb83eeb72a9613415f7e9418b0878d32f2991d26 -->
   </div>
 </template>
 
 <script>
 import Map from "../components/Map.vue";
 export default {
-<<<<<<< HEAD
+// <<<<<<< HEAD
     name: "home",
     components: Map,
-=======
-  name: "home",
->>>>>>> fb83eeb72a9613415f7e9418b0878d32f2991d26
+// =======
+//   name: "home",
+// >>>>>>> fb83eeb72a9613415f7e9418b0878d32f2991d26
 };
 </script>
 

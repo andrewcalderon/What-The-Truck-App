@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div style="display: flex; align-items: center; justify-content: space-between">
+    <!-- <div style="display: flex; align-items: center; justify-content: space-between">
         <div>
             <h1>Your coordinates:</h1>
             <p>{{ myCoordinates.lat }} Latitude, {{ myCoordinates.lng }} Longitude</p>
@@ -9,7 +9,7 @@
             <h1>Map coordinates:</h1>
             <p>{{ mapCoordinates.lat }} Latitude, {{ mapCoordinates.lng}} Longitude</p>
         </div>
-    </div>
+    </div> -->
     <!-- <button @click="addMarker">
         add markers
     </button> -->

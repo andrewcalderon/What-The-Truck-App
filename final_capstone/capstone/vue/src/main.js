@@ -10,7 +10,8 @@ Vue.config.productionTip = false
 Vue.use(VueGeoLocation)
 Vue.use(VueGoogleMaps, {
   load: {
-    key: 'AIzaSyCuwoP51kexUiwZzaorjVurx77yup8wDJc'
+    key: 'AIzaSyCuwoP51kexUiwZzaorjVurx77yup8wDJc',
+    libraries: "places"
   },
   installCompenents: false
 })
