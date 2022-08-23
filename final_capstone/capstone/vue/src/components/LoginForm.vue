@@ -1,198 +1,40 @@
 <template>
-	<div id="login-page">
-		<!-- Everything below this is the NAV BAR -->
-		<div class="nav-bar-area">
-			<div class="the-logo">
-				<p id="logo-font">What The Truck!</p>
-				<div id="red-truck" class="fa-solid fa-truck-field"></div>
-			</div>
-
-			<form id="nav-bar-search">
-				<input
-					id="nbs-input"
-					type="text"
-					name="q"
-					placeholder="Search..."
-					style="height: 20px"
-				/>
-				<button id="nbs-button">Search</button>
-			</form>
-
-			<!-- <div id="menu-bar" class="fas fa-bars"></div> -->
-			<nav class="navbar-links">
-				<a class="nav-bar-buttons" href="#home">Home</a>
-				<a class="nav-bar-buttons" href="#gallery">Gallery</a>
-				<a class="nav-bar-buttons" href="#signup">Login/Signup</a>
-			</nav>
-		</div>
-		<!-- Everything above this is the NAV BAR -->
-
-		<div id="login-area">
-			<div class="wrapper fadeInDown">
-				<div id="formContent">
-					<!-- Tabs Titles -->
-					<h2 class="active" v-on:click="showForm = !showForm">Log In</h2>
-					<h2 class="inactive underlineHover" v-on:click="showForm = !showForm">
-						Register
-					</h2>
-
-					<!-- Login/Reg Form -->
-
-					<LoginForm v-show="!showForm" />
-					<RegForm v-show="showForm" />
-
-					<!-- Remind Password -->
-
-					<div id="formFooter">
-						<a class="underlineHover" href="#">Forgot Password?</a>
-					</div>
-				</div>
-			</div>
-		</div>
+	<div>
+		<form>
+			<input
+				type="text"
+				id="login-input"
+				class="input-text log-in-input fadeIn second"
+				name="login"
+				placeholder="Enter Username"
+			/>
+			<input
+				type="text"
+				id="password-input"
+				class="input-text log-in-input fadeIn third"
+				name="login"
+				placeholder="Enter Password"
+			/>
+			<input
+				type="submit"
+				id="submit-input"
+				class="fadeIn fourth"
+				value="Log In"
+			/>
+		</form>
 	</div>
 </template>
 
 <script>
-	import authService from "../services/AuthService"
-	import LoginForm from "../components/LoginForm.vue"
-	import RegForm from "../components/RegForm.vue"
-
 	export default {
-		name: "login",
-		components: { LoginForm, RegForm },
+		name: "loginForm",
 		data() {
-			return {
-				showForm: false,
-				user: {
-					username: "",
-					password: "",
-				},
-				invalidCredentials: false,
-			}
-		},
-		methods: {
-			login() {
-				authService
-					.login(this.user)
-					.then((response) => {
-						if (response.status == 200) {
-							this.$store.commit("SET_AUTH_TOKEN", response.data.token)
-							this.$store.commit("SET_USER", response.data.user)
-							this.$router.push("/")
-						}
-					})
-					.catch((error) => {
-						const response = error.response
-
-						if (response.status === 401) {
-							this.invalidCredentials = true
-						}
-					})
-			},
+			return
 		},
 	}
 </script>
 
 <style>
-	@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&display=swap");
-	@import url("https://fonts.googleapis.com/css2?family=DynaPuff:wght@400;600;700&family=Nunito:wght@200;300;400;600;700&display=swap");
-	@import url("https://fonts.googleapis.com/css?family=Poppins");
-
-	#login-page {
-		height: 100vh;
-	}
-
-	/* Everything below this is the NAV BAR */
-
-	.nav-bar-area {
-		height: 12%;
-		position: fixed;
-		top: 0;
-		left: 0;
-		right: 0;
-		z-index: 10;
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-		padding: 0 9vw;
-	}
-
-	#login-area {
-		display: flex;
-		align-items: center;
-		flex-direction: column;
-		justify-content: center;
-		width: 100%;
-		min-height: 100%;
-		padding: 20px;
-	}
-
-	.the-logo {
-		display: flex;
-		height: 100%;
-	}
-
-	#logo-font {
-		font-size: 2.4rem;
-		text-decoration: none;
-		text-transform: capitalize;
-		font-weight: 400;
-		color: #666;
-		font-family: "DynaPuff", cursive;
-		height: 100%;
-		margin: 0;
-		padding-top: 20px;
-	}
-
-	#red-truck {
-		background: red;
-		width: 100px;
-		height: 100%;
-	}
-
-	#nav-bar-search {
-		width: 300px;
-		height: 44px;
-		display: flex;
-		text-align: center;
-		flex-direction: row;
-		align-items: center;
-		border-radius: 5px;
-		background-color: rgb(208, 204, 204);
-	}
-
-	#nbs-input {
-		width: 80%;
-		border: none;
-		background-color: rgb(208, 204, 204);
-	}
-
-	#nbs-input::placeholder {
-		color: white;
-		font-size: 1.1rem;
-		text-indent: 10px;
-	}
-
-	#nbs-button {
-		width: 20%;
-		border: none;
-		background-color: rgb(208, 204, 204);
-		font-size: 0.6rem;
-	}
-
-	.nav-bar-buttons {
-		font-family: "Nunito", sans-serif;
-		font-size: 1.2rem;
-		margin-left: 2rem;
-		color: #666;
-		text-decoration: none;
-	}
-
-	/* Everything above this is the NAV BAR */
-
-	/* Log in form css below */
-
 	h2 {
 		text-align: center;
 		font-size: 16px;
@@ -456,9 +298,5 @@
 
 	* {
 		box-sizing: border-box;
-	}
-
-	.dis-none {
-		display: none;
 	}
 </style>
