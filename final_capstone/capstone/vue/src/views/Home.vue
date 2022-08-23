@@ -42,12 +42,8 @@
 	import Map from "../components/Map.vue"
 	import SideBar from "../components/SideBar.vue"
 	export default {
-		// <<<<<<< HEAD
 		name: "home",
 		components: { Map, SideBar },
-		// =======
-		//   name: "home",
-		// >>>>>>> fb83eeb72a9613415f7e9418b0878d32f2991d26
 	}
 </script>
 
@@ -163,4 +159,3 @@
 
 	/* Everything above this is the NAV BAR */
 </style>
->>>>>>> 41033fafeb44ab3b7cadc0dcb9db8af8680c283c

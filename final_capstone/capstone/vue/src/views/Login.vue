@@ -4,25 +4,19 @@
 		<div class="nav-bar-area">
 			<div class="the-logo">
 				<p id="logo-font">What The Truck!</p>
-				<div id="red-truck" class="fa-solid fa-truck-field"></div>
+				<div class="logo">
+					<font-awesome-icon icon="fa-solid fa-truck-field" />
+				</div>
+				<!-- <div id="red-truck" class="fa-solid fa-truck-field"></div> -->
 			</div>
-
-			<form id="nav-bar-search">
-				<input
-					id="nbs-input"
-					type="text"
-					name="q"
-					placeholder="Search..."
-					style="height: 20px"
-				/>
-				<button id="nbs-button">Search</button>
-			</form>
 
 			<!-- <div id="menu-bar" class="fas fa-bars"></div> -->
 			<nav class="navbar-links">
-				<a class="nav-bar-buttons" href="#home">Home</a>
-				<a class="nav-bar-buttons" href="#gallery">Gallery</a>
-				<a class="nav-bar-buttons" href="#signup">Login/Signup</a>
+				<a class="nav-bar-buttons underlineHover" href="#home">Home</a>
+				<a class="nav-bar-buttons underlineHover" href="#gallery">Gallery</a>
+				<a class="nav-bar-buttons underlineHover" href="#signup"
+					>Login/Signup</a
+				>
 			</nav>
 		</div>
 		<!-- Everything above this is the NAV BAR -->
@@ -31,8 +25,16 @@
 			<div class="wrapper fadeInDown">
 				<div id="formContent">
 					<!-- Tabs Titles -->
-					<h2 class="active" v-on:click="showForm = !showForm">Log In</h2>
-					<h2 class="inactive underlineHover" v-on:click="showForm = !showForm">
+					<h2
+						class="inactive underlineHover cursor-point"
+						v-on:click="showForm = !showForm"
+					>
+						Log In
+					</h2>
+					<h2
+						class="inactive underlineHover cursor-point"
+						v-on:click="showForm = !showForm"
+					>
 						Register
 					</h2>
 
@@ -68,6 +70,15 @@
 					password: "",
 				},
 				invalidCredentials: false,
+				newuser: {
+					username: "",
+					password: "",
+					confirmPassword: "",
+					role: "user",
+					email: "",
+				},
+				registrationErrors: false,
+				registrationErrorMsg: "There were problems registering this user.",
 			}
 		},
 		methods: {
@@ -88,6 +99,35 @@
 							this.invalidCredentials = true
 						}
 					})
+			},
+			register() {
+				if (this.newuser.password != this.newuser.confirmPassword) {
+					this.registrationErrors = true
+					this.registrationErrorMsg =
+						"Password & Confirm Password do not match."
+				} else {
+					authService
+						.register(this.newuser)
+						.then((response) => {
+							if (response.status == 201) {
+								this.$router.push({
+									path: "/login",
+									query: { registration: "success" },
+								})
+							}
+						})
+						.catch((error) => {
+							const response = error.response
+							this.registrationErrors = true
+							if (response.status === 400) {
+								this.registrationErrorMsg = "Bad Request: Validation Errors"
+							}
+						})
+				}
+			},
+			clearErrors() {
+				this.registrationErrors = false
+				this.registrationErrorMsg = "There were problems registering this user."
 			},
 		},
 	}
@@ -131,6 +171,16 @@
 	.the-logo {
 		display: flex;
 		height: 100%;
+	}
+
+	.logo svg {
+		color: red;
+		fill: #fff;
+		padding-top: 25px;
+		padding-left: 10px;
+		/* width: 24px;
+	height: 24px;
+	padding: 10px; */
 	}
 
 	#logo-font {
@@ -244,10 +294,10 @@
 		color: #cccccc;
 	}
 
-	h2.active {
+	/* h2.active {
 		color: #0d0d0d;
-		border-bottom: 2px solid #ff3838;
-	}
+		border-bottom: 2px #ff3838;
+	} */
 
 	/* FORM TYPOGRAPHY*/
 
@@ -426,7 +476,7 @@
 
 	/* Simple CSS3 Fade-in Animation */
 	.underlineHover:after {
-		display: block;
+		/* display: block; */
 		left: 0;
 		bottom: -10px;
 		width: 0;
@@ -460,5 +510,13 @@
 
 	.dis-none {
 		display: none;
+	}
+
+	.navbar-links {
+		display: flex;
+	}
+
+	.cursor-point {
+		cursor: pointer;
 	}
 </style>
