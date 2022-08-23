@@ -14,9 +14,9 @@
         add markers
     </button> -->
     <GmapMap
+        id = "map-css"
         :center="myCoordinates"
         :zoom="zoom"
-        style="width:640px; height:360px; margin: 32px auto;"
         ref="mapRef"
         @dragend="handleDrag"
         >
@@ -123,5 +123,14 @@ export default {
 </script>
 
 <style>
+
+#map-css {
+    /* width:640px; height:360px; margin: 32px auto; */
+    position: fixed;
+	bottom: 0;
+	right: 0;
+	width: 80%;
+	height: 87.9vh;
+}
 
 </style>

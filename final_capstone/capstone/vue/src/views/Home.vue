@@ -4,7 +4,8 @@
     <div class="nav-bar-area">
       <div class="the-logo">
         <p id="logo-font">What The Truck!</p>
-        <div id="red-truck" class="fa-solid fa-truck-field"></div>
+        <div class ="logo"><font-awesome-icon icon="fa-solid fa-truck-field" /></div>
+        <!-- <div id="red-truck" class="fa-solid fa-truck-field"></div> -->
       </div>
 
       <form id="nav-bar-search">
@@ -28,6 +29,9 @@
       </nav>
     </div>
     <!-- Everything above this is the NAV BAR -->
+
+    <SideBar></SideBar>
+
    <Map></Map>
 <!-- =======
 >>>>>>> fb83eeb72a9613415f7e9418b0878d32f2991d26 -->
@@ -36,10 +40,11 @@
 
 <script>
 import Map from "../components/Map.vue";
+import SideBar from "../components/SideBar.vue";
 export default {
 // <<<<<<< HEAD
     name: "home",
-    components: Map,
+    components: {Map, SideBar}
 // =======
 //   name: "home",
 // >>>>>>> fb83eeb72a9613415f7e9418b0878d32f2991d26
@@ -94,11 +99,32 @@ export default {
   padding-top: 20px;
 }
 
-#red-truck {
-  background: red;
-  width: 100px;
-  height: 100%;
+.logo {
+    font-size: 2.5rem;
+	color: red;
+  
 }
+
+.logo svg {
+	color: red;
+	fill: #fff;
+    padding-top: 25px;
+    padding-left: 10px;
+	/* width: 24px;
+	height: 24px;
+	padding: 10px; */
+}
+
+.td-icons svg {
+    color: green;
+    fill: white;
+}
+
+
+
+/* svg path {
+    height: 100px;
+} */
 
 #nav-bar-search {
   width: 300px;
