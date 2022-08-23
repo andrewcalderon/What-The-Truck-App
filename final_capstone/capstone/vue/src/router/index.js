@@ -1,23 +1,13 @@
-<<<<<<< HEAD
+// <<<<<<< HEAD
 import Vue from "vue"
 import Router from "vue-router"
 import Home from "../views/Home.vue"
 import Login from "../views/Login.vue"
 import Logout from "../views/Logout.vue"
 import Register from "../views/Register.vue"
-import store from "../store/index"
-import UserLocation from "../components/UserLocation.vue"
-=======
-// <<<<<<< HEAD
-import Vue from 'vue'
-import Router from 'vue-router'
-import Home from '../views/Home.vue'
-import Login from '../views/Login.vue'
-import Logout from '../views/Logout.vue'
-import Register from '../views/Register.vue'
 import Map from "../views/Map.vue"
 import Gallery from "../views/Gallery.vue"
-import store from '../store/index'
+import store from "../store/index"
 // =======
 // import Vue from "vue";
 // import Router from "vue-router";
@@ -27,9 +17,8 @@ import store from '../store/index'
 // import Register from "../views/Register.vue";
 // import store from "../store/index";
 // >>>>>>> fb83eeb72a9613415f7e9418b0878d32f2991d26
->>>>>>> 41033fafeb44ab3b7cadc0dcb9db8af8680c283c
 
-Vue.use(Router);
+Vue.use(Router)
 
 /**
  * The Vue Router is used to "direct" the browser to render a specific view component
@@ -41,7 +30,6 @@ Vue.use(Router);
  */
 
 const router = new Router({
-<<<<<<< HEAD
 	mode: "history",
 	base: process.env.BASE_URL,
 	routes: [
@@ -50,13 +38,21 @@ const router = new Router({
 			name: "home",
 			component: Home,
 			meta: {
-				requiresAuth: true,
+				requiresAuth: false,
 			},
 		},
 		{
 			path: "/login",
 			name: "login",
 			component: Login,
+			meta: {
+				requiresAuth: false,
+			},
+		},
+		{
+			path: "/gallery",
+			name: "gallery",
+			component: Gallery,
 			meta: {
 				requiresAuth: false,
 			},
@@ -74,67 +70,19 @@ const router = new Router({
 			name: "register",
 			component: Register,
 			meta: {
+				// <<<<<<< HEAD
 				requiresAuth: false,
 			},
 		},
-		{ path: "/userlocation", name: "userlocation", component: UserLocation },
+		{
+			path: "/map",
+			name: "map-view",
+			component: Map,
+			meta: {
+				requiresAuth: false,
+			},
+		},
 	],
-=======
-  mode: "history",
-  base: process.env.BASE_URL,
-  routes: [
-    {
-      path: "/",
-      name: "home",
-      component: Home,
-      meta: {
-        requiresAuth: false,
-      },
-    },
-    {
-      path: "/login",
-      name: "login",
-      component: Login,
-      meta: {
-        requiresAuth: false,
-      },
-    },
-    {
-      path: "/gallery",
-      name: "gallery",
-      component: Gallery,
-      meta: {
-        requiresAuth: false,
-      },
-    },
-    {
-      path: "/logout",
-      name: "logout",
-      component: Logout,
-      meta: {
-        requiresAuth: false,
-      },
-    },
-    {
-      path: "/register",
-      name: "register",
-      component: Register,
-      meta: {
-// <<<<<<< HEAD
-        requiresAuth: false
-      }
-    },
-    {
-      path: "/map",
-      name: "map-view",
-      component: Map,
-      meta: {
-        requiresAuth: false
-      }
-    },
-
-  ]
->>>>>>> 41033fafeb44ab3b7cadc0dcb9db8af8680c283c
 })
 // =======
 //         requiresAuth: false,
@@ -145,7 +93,6 @@ const router = new Router({
 // >>>>>>> fb83eeb72a9613415f7e9418b0878d32f2991d26
 
 router.beforeEach((to, from, next) => {
-<<<<<<< HEAD
 	// Determine if the route requires Authentication
 	const requiresAuth = to.matched.some((x) => x.meta.requiresAuth)
 
@@ -157,18 +104,5 @@ router.beforeEach((to, from, next) => {
 		next()
 	}
 })
-=======
-  // Determine if the route requires Authentication
-  const requiresAuth = to.matched.some((x) => x.meta.requiresAuth);
-
-  // If it does and they are not logged in, send the user to "/login"
-  if (requiresAuth && store.state.token === "") {
-    next("/login");
-  } else {
-    // Else let them go to their next destination
-    next();
-  }
-});
->>>>>>> 41033fafeb44ab3b7cadc0dcb9db8af8680c283c
 
 export default router
