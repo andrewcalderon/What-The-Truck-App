@@ -10,17 +10,16 @@ CREATE TABLE users (
 	CONSTRAINT PK_user PRIMARY KEY (user_id)
 );
 
-CREATE TABLE truck (
+CREATE TABLE trucks (
     id SERIAL PRIMARY KEY,
     name varchar(300) NOT NULL,
     online boolean NOT NULL,
-    logo varchar(1000) NOT NULL,
-    truck_lat decimal NOT NULL,
-    truck_long decimal NOT NULL
+    truck_lat decimal,
+    truck_long decimal
     user_id REFERENCES user(id)
 );
 
-CREATE TABLE menu (
+CREATE TABLE menus (
     id SERIAL PRIMARY KEY;
     item_name varchar(100);
     description varchar(1000);
