@@ -27,7 +27,7 @@
       <div class="wrapper fadeInDown">
         <div id="formContent">
           <!-- Tabs Titles -->
-          <h2 class="active"> Log In </h2>
+          <h2 class="inactive underlineHover"> Log In </h2>
           <h2 class="inactive underlineHover">Register</h2>
 
           <!-- Login Form -->

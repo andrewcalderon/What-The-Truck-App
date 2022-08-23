@@ -20,7 +20,7 @@ public class JDBCTruckDao implements TruckDao{
     @Override
     public List<Truck> list() {
         List<Truck> trucks = new ArrayList<>();
-        String listOfTrucks = "Select * FROM truck";
+        String listOfTrucks = "Select * FROM trucks";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(listOfTrucks);
         while(results.next()) {
@@ -33,7 +33,7 @@ public class JDBCTruckDao implements TruckDao{
     @Override
     public Truck getTruckById(long id) {
         Truck truck = null;
-        String truckById = "SELECT * FROM truck WHERE id = ?";
+        String truckById = "SELECT * FROM trucks WHERE id = ?";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(truckById, id);
         if (results.next()) {
@@ -46,13 +46,13 @@ public class JDBCTruckDao implements TruckDao{
 
     @Override
     public boolean update(long id, Truck changedTruck) {
-        String updatedRow = "UPDATE truck SET name = ?, online = ?, logo = ?, user_id = ?, WHERE id = ?";
+        String updatedRow = "UPDATE trucks SET name = ?, online = ?, logo = ?, user_id = ?, WHERE id = ?";
         return jdbcTemplate.update(updatedRow, changedTruck.getName(), changedTruck.isOnline(), changedTruck.getLogo(), changedTruck.getUserId(), id) == 1;
     }
 
     @Override
     public Truck createTruck(Truck truck) {
-        String createdTruck = "INSERT INTO truck (name, online, logo, userId) VALUES (?, ?, ?, ?) RETURNING id;";
+        String createdTruck = "INSERT INTO trucks (name, online, logo, userId) VALUES (?, ?, ?, ?) RETURNING id;";
         long id = jdbcTemplate.queryForObject(createdTruck, Integer.class, truck.getName(), truck.isOnline(), truck.getLogo(), truck.getUserId());
         truck.setId(id);
         return truck;
@@ -60,7 +60,7 @@ public class JDBCTruckDao implements TruckDao{
 
     @Override
     public boolean deleteTruck(long id) {
-        String deletedTruck = "DELETE FROM truck WHERE id = ?";
+        String deletedTruck = "DELETE FROM trucks WHERE id = ?";
         return jdbcTemplate.update(deletedTruck, id) == 1;
     }
 
