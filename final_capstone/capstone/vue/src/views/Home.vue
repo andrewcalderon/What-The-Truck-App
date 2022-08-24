@@ -23,11 +23,15 @@
 
 			<!-- <div id="menu-bar" class="fas fa-bars"></div> -->
 			<nav class="navbar-links">
+				<router-link v-bind:to="{name: 'home'}">
 				<a class="nav-bar-buttons" href="#home">Home</a>
+				</router-link>
 				<router-link v-bind:to="{ name: 'gallery' }">
 					<a class="nav-bar-buttons" href="#gallery">Gallery</a>
 				</router-link>
+				<router-link v-bind:to="{name: 'login' }">
 				<a class="nav-bar-buttons" href="#signup">Login/Signup</a>
+				</router-link>
 			</nav>
 		</div>
 		<!-- Everything above this is the NAV BAR -->
