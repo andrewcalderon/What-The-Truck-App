@@ -6,6 +6,6 @@ export default {
 	},
 
 	register(newuser) {
-		return axios.post("/login", newuser)
+		return axios.post("/register", newuser)
 	},
 }
