@@ -4,6 +4,7 @@ import Home from "../views/Home.vue"
 import Login from "../views/Login.vue"
 import Gallery from "../views/Gallery.vue"
 import store from "../store/index"
+import FoodTruckForm from "../views/FoodTruckForm.vue"
 
 Vue.use(Router)
 
@@ -17,36 +18,43 @@ Vue.use(Router)
  */
 
 const router = new Router({
-  mode: "history",
-  base: process.env.BASE_URL,
-  routes: [
-    {
-      path: "/",
-      name: "home",
-      component: Home,
-      meta: {
-        requiresAuth: true,
-      },
-    },
-    {
-      path: "/login",
-      name: "login",
-      component: Login,
-      meta: {
-        requiresAuth: false,
-      },
-    },
-    {
-      path: "/gallery",
-      name: "gallery",
-      component: Gallery,
-      meta: {
-        requiresAuth: false,
-      },
-    },
-  ]
+	mode: "history",
+	base: process.env.BASE_URL,
+	routes: [
+		{
+			path: "/",
+			name: "home",
+			component: Home,
+			meta: {
+				requiresAuth: true,
+			},
+		},
+		{
+			path: "/login",
+			name: "login",
+			component: Login,
+			meta: {
+				requiresAuth: false,
+			},
+		},
+		{
+			path: "/gallery",
+			name: "gallery",
+			component: Gallery,
+			meta: {
+				requiresAuth: false,
+			},
+		},
+		{
+			path: "/FoodTruckForm",
+			name: "FoodTruckForm",
+			component: FoodTruckForm,
+			meta: {
+				requiresAuth: false,
+			},
+		},
+	],
 })
-
 
 router.beforeEach((to, from, next) => {
 	// Determine if the route requires Authentication
