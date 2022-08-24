@@ -1,24 +1,14 @@
-// <<<<<<< HEAD
-import Vue from 'vue'
-import Router from 'vue-router'
-import Home from '../views/Home.vue'
-import Login from '../views/Login.vue'
-import Logout from '../views/Logout.vue'
-import Register from '../views/Register.vue'
+import Vue from "vue"
+import Router from "vue-router"
+import Home from "../views/Home.vue"
+import Login from "../views/Login.vue"
+import Logout from "../views/Logout.vue"
+import Register from "../views/Register.vue"
 import Map from "../views/Map.vue"
 import Gallery from "../views/Gallery.vue"
-import store from '../store/index'
-// =======
-// import Vue from "vue";
-// import Router from "vue-router";
-// import Home from "../views/Home.vue";
-// import Login from "../views/Login.vue";
-// import Logout from "../views/Logout.vue";
-// import Register from "../views/Register.vue";
-// import store from "../store/index";
-// >>>>>>> fb83eeb72a9613415f7e9418b0878d32f2991d26
+import store from "../store/index"
 
-Vue.use(Router);
+Vue.use(Router)
 
 /**
  * The Vue Router is used to "direct" the browser to render a specific view component
@@ -57,53 +47,21 @@ const router = new Router({
         requiresAuth: false,
       },
     },
-    {
-      path: "/logout",
-      name: "logout",
-      component: Logout,
-      meta: {
-        requiresAuth: false,
-      },
-    },
-    {
-      path: "/register",
-      name: "register",
-      component: Register,
-      meta: {
-// <<<<<<< HEAD
-        requiresAuth: false
-      }
-    },
-    {
-      path: "/map",
-      name: "map-view",
-      component: Map,
-      meta: {
-        requiresAuth: false
-      }
-    },
-
   ]
 })
-// =======
-//         requiresAuth: false,
-//       },
-//     },
-//   ],
-// });
-// >>>>>>> fb83eeb72a9613415f7e9418b0878d32f2991d26
+
 
 router.beforeEach((to, from, next) => {
-  // Determine if the route requires Authentication
-  const requiresAuth = to.matched.some((x) => x.meta.requiresAuth);
+	// Determine if the route requires Authentication
+	const requiresAuth = to.matched.some((x) => x.meta.requiresAuth)
 
-  // If it does and they are not logged in, send the user to "/login"
-  if (requiresAuth && store.state.token === "") {
-    next("/login");
-  } else {
-    // Else let them go to their next destination
-    next();
-  }
-});
+	// If it does and they are not logged in, send the user to "/login"
+	if (requiresAuth && store.state.token === "") {
+		next("/login")
+	} else {
+		// Else let them go to their next destination
+		next()
+	}
+})
 
-export default router;
+export default router
