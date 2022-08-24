@@ -23,7 +23,7 @@
 				type="submit"
 				id="submit-input"
 				class="fadeIn fourth"
-				value="Log In"
+				value="Register"
 			/>
 		</form>
 	</div>
