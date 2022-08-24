@@ -1,4 +1,3 @@
-// <<<<<<< HEAD
 import Vue from "vue"
 import Router from "vue-router"
 import Home from "../views/Home.vue"
@@ -8,15 +7,6 @@ import Register from "../views/Register.vue"
 import Map from "../views/Map.vue"
 import Gallery from "../views/Gallery.vue"
 import store from "../store/index"
-// =======
-// import Vue from "vue";
-// import Router from "vue-router";
-// import Home from "../views/Home.vue";
-// import Login from "../views/Login.vue";
-// import Logout from "../views/Logout.vue";
-// import Register from "../views/Register.vue";
-// import store from "../store/index";
-// >>>>>>> fb83eeb72a9613415f7e9418b0878d32f2991d26
 
 Vue.use(Router)
 
@@ -30,67 +20,36 @@ Vue.use(Router)
  */
 
 const router = new Router({
-	mode: "history",
-	base: process.env.BASE_URL,
-	routes: [
-		{
-			path: "/",
-			name: "home",
-			component: Home,
-			meta: {
-				requiresAuth: true,
-			},
-		},
-		{
-			path: "/login",
-			name: "login",
-			component: Login,
-			meta: {
-				requiresAuth: false,
-			},
-		},
-		{
-			path: "/gallery",
-			name: "gallery",
-			component: Gallery,
-			meta: {
-				requiresAuth: false,
-			},
-		},
-		{
-			path: "/logout",
-			name: "logout",
-			component: Logout,
-			meta: {
-				requiresAuth: false,
-			},
-		},
-		{
-			path: "/register",
-			name: "register",
-			component: Register,
-			meta: {
-				// <<<<<<< HEAD
-				requiresAuth: false,
-			},
-		},
-		{
-			path: "/map",
-			name: "map-view",
-			component: Map,
-			meta: {
-				requiresAuth: false,
-			},
-		},
-	],
+  mode: "history",
+  base: process.env.BASE_URL,
+  routes: [
+    {
+      path: "/",
+      name: "home",
+      component: Home,
+      meta: {
+        requiresAuth: true,
+      },
+    },
+    {
+      path: "/login",
+      name: "login",
+      component: Login,
+      meta: {
+        requiresAuth: false,
+      },
+    },
+    {
+      path: "/gallery",
+      name: "gallery",
+      component: Gallery,
+      meta: {
+        requiresAuth: false,
+      },
+    },
+  ]
 })
-// =======
-//         requiresAuth: false,
-//       },
-//     },
-//   ],
-// });
-// >>>>>>> fb83eeb72a9613415f7e9418b0878d32f2991d26
+
 
 router.beforeEach((to, from, next) => {
 	// Determine if the route requires Authentication
