@@ -1,25 +1,33 @@
 <template>
 	<div>
-		<form>
+		<form @submit.prevent="register">
 			<input
 				type="text"
 				id="register-login-input"
 				class="input-text log-in-input fadeIn second"
-				name="login"
+				v-model="newuser.username"
 				placeholder="Create Username"
 			/>
 			<input
 				type="text"
 				id="register-password-input"
 				class="input-text log-in-input fadeIn third"
+				v-model="newuser.password"
+				placeholder="Create Password"
+			/>
+			<input
+				type="text"
+				id="register-password-confirm-input"
+				class="input-text log-in-input fadeIn third"
 				name="login"
+				v-model="newuser.confirmPassword"
 				placeholder="Create Password"
 			/>
 			<input
 				type="text"
 				id="register-email-input"
 				class="input-text log-in-input fadeIn second"
-				name="login"
+				v-model="newuser.email"
 				placeholder="Enter Email Address"
 			/>
 			<input
@@ -55,10 +63,12 @@
 					this.registrationErrors = true
 					this.registrationErrorMsg =
 						"Password & Confirm Password do not match."
+					console.log("password dont match")
 				} else {
 					authService
 						.register(this.newuser)
 						.then((response) => {
+							console.log("reg worked!")
 							if (response.status == 201) {
 								this.$router.push({
 									path: "/login",
@@ -67,6 +77,7 @@
 							}
 						})
 						.catch((error) => {
+							console.log("reg didnt work", this.newuser)
 							const response = error.response
 							this.registrationErrors = true
 							if (response.status === 400) {

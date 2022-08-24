@@ -1,18 +1,18 @@
 <template>
 	<div>
-		<form>
+		<form @submit.prevent="login">
 			<input
 				type="text"
 				id="login-input"
 				class="input-text log-in-input fadeIn second"
-				name="login"
+				v-model="user.username"
 				placeholder="Enter Username"
 			/>
 			<input
 				type="text"
 				id="password-input"
 				class="input-text log-in-input fadeIn third"
-				name="login"
+				v-model="user.password"
 				placeholder="Enter Password"
 			/>
 			<input
@@ -48,14 +48,17 @@
 							this.$store.commit("SET_USER", response.data.user)
 							this.$router.push("/")
 						}
+						console.log("login works")
 					})
 					.catch((error) => {
 						const response = error.response
 
 						if (response.status === 401) {
 							this.invalidCredentials = true
+							console.log("invalid credentials")
 						}
 					})
+				console.log("login broken", this.user)
 			},
 		},
 	}
