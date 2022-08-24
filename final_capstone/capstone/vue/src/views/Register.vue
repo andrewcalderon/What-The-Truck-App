@@ -33,7 +33,7 @@
         required
       />
       <router-link :to="{ name: 'login' }">Have an account?</router-link>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">
+      <button class="btn btn-lg btn-primary btn-block" type="submit" @click="register()" >
         Create Account
       </button>
     </form>
@@ -60,6 +60,7 @@ export default {
   methods: {
     register() {
       if (this.user.password != this.user.confirmPassword) {
+        console.log('password wrong')
         this.registrationErrors = true;
         this.registrationErrorMsg = 'Password & Confirm Password do not match.';
       } else {
@@ -76,6 +77,7 @@ export default {
           .catch((error) => {
             const response = error.response;
             this.registrationErrors = true;
+            console.log(error.response)
             if (response.status === 400) {
               this.registrationErrorMsg = 'Bad Request: Validation Errors';
             }

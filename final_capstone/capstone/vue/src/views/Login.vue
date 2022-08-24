@@ -31,9 +31,9 @@
           <h2 class="inactive underlineHover">Register</h2>
 
           <!-- Login Form -->
-          <form>
-            <input type="text" id="login-input" class="input-text log-in-input fadeIn second" name="login" placeholder="Enter Username">
-            <input type="text" id="password-input" class="input-text log-in-input fadeIn third" name="login" placeholder="Enter Password">
+          <form @submit.prevent="login">
+            <input type="text" id="login-input" class="input-text log-in-input fadeIn second" v-model="user.username"  placeholder="Enter Username">
+            <input type="text" id="password-input" class="input-text log-in-input fadeIn third" v-model="user.password" placeholder="Enter Password">
             <input type="submit" id="submit-input" class="fadeIn fourth" value="Log In">
           </form>
           <!-- Remind Passowrd -->
@@ -70,6 +70,7 @@ export default {
         .login(this.user)
         .then(response => {
           if (response.status == 200) {
+            console.log("login works")
             this.$store.commit("SET_AUTH_TOKEN", response.data.token);
             this.$store.commit("SET_USER", response.data.user);
             this.$router.push("/");
@@ -77,8 +78,10 @@ export default {
         })
         .catch(error => {
           const response = error.response;
+          console.log(response)
 
           if (response.status === 401) {
+            console.log(response.status)
             this.invalidCredentials = true;
           }
         });

@@ -24,7 +24,7 @@
         :key="index"
         v-for="(m, index) in markers"
         :position="m.position"
-        :icon="require(faTruckField).default"
+        :icon="fa-circle-check"
 
         >
         </gmap-marker>
