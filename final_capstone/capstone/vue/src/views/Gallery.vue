@@ -17,8 +17,8 @@
 				<router-link v-bind:to="{ name: 'gallery' }">
 					<a class="nav-bar-buttons" href="#gallery">Gallery</a>
 				</router-link>
-				<router-link v-bind:to="{ name: 'login' }">
-					<a class="nav-bar-buttons" href="#signup">Login/Signup</a>
+				<router-link v-bind:to="{ name: 'logout' }">
+					<a class="nav-bar-buttons" href="#signup">Logout</a>
 				</router-link>
 			</nav>
 		</div>

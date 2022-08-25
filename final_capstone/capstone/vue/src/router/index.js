@@ -51,7 +51,7 @@ const router = new Router({
 			name: "gallery",
 			component: Gallery,
 			meta: {
-				requiresAuth: false,
+				requiresAuth: true,
 			},
 		},
 		{
@@ -59,7 +59,7 @@ const router = new Router({
 			name: "FoodTruckForm",
 			component: FoodTruckForm,
 			meta: {
-				requiresAuth: false,
+				requiresAuth: true,
 			},
 		},
 	],
