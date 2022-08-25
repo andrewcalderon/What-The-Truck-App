@@ -6,6 +6,7 @@ import Logout from "../views/Logout.vue"
 import Gallery from "../views/Gallery.vue"
 import store from "../store/index"
 import FoodTruckForm from "../views/FoodTruckForm.vue"
+import Profile from "../views/Profile.vue"
 
 Vue.use(Router)
 
@@ -60,6 +61,14 @@ const router = new Router({
 			component: FoodTruckForm,
 			meta: {
 				requiresAuth: true,
+			},
+		},
+		{
+			path: "/Profile",
+			name: "Profile",
+			component: Profile,
+			meta: {
+				requiresAuth: false,
 			},
 		},
 	],

@@ -29,6 +29,9 @@
 				<router-link v-bind:to="{ name: 'gallery' }">
 					<a class="nav-bar-buttons" href="#gallery">Gallery</a>
 				</router-link>
+				<router-link v-bind:to="{ name: 'FoodTruckForm' }">
+					<a class="nav-bar-buttons" href="#MyTruck">My Truck</a>
+				</router-link>
 				<router-link v-bind:to="{name: 'logout' }">
 				<a class="nav-bar-buttons" href="#signup">Logout</a>
 				</router-link>

@@ -1,5 +1,5 @@
 <template>
-	<div id="FoodTruckForm">
+	<div id="foodtruck-div">
 		<!-- Everything below this is the NAV BAR -->
 		<div class="nav-bar-area">
 			<div class="the-logo">
@@ -12,11 +12,18 @@
 
 			<!-- <div id="menu-bar" class="fas fa-bars"></div> -->
 			<nav class="navbar-links">
-				<a class="nav-bar-buttons underlineHover" href="#home">Home</a>
-				<a class="nav-bar-buttons underlineHover" href="#gallery">Gallery</a>
-				<a class="nav-bar-buttons underlineHover" href="#signup"
-					>Login/Signup</a
-				>
+				<router-link v-bind:to="{ name: 'home' }">
+					<a class="nav-bar-buttons" href="#home">Home</a>
+				</router-link>
+				<router-link v-bind:to="{ name: 'gallery' }">
+					<a class="nav-bar-buttons" href="#gallery">Gallery</a>
+				</router-link>
+				<router-link v-bind:to="{ name: 'FoodTruckForm' }">
+					<a class="nav-bar-buttons" href="#MyTruck">My Truck</a>
+				</router-link>
+				<router-link v-bind:to="{ name: 'login' }">
+					<a class="nav-bar-buttons" href="#signup">Login/Signup</a>
+				</router-link>
 			</nav>
 		</div>
 		<!-- Everything above this is the NAV BAR -->
@@ -54,8 +61,13 @@
 	@import url("https://fonts.googleapis.com/css2?family=DynaPuff:wght@400;600;700&family=Nunito:wght@200;300;400;600;700&display=swap");
 	@import url("https://fonts.googleapis.com/css?family=Poppins");
 
-	#login-page {
+	#foodtruck-div {
 		height: 100vh;
+		background-image: url("../images/bg-img-1.png");
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-attachment: fixed;
+		background-position: center;
 	}
 
 	/* Everything below this is the NAV BAR */
@@ -74,7 +86,7 @@
 		padding: 0 9vw;
 	}
 
-	#login-area {
+	#FoodTruckForm {
 		display: flex;
 		align-items: center;
 		flex-direction: column;

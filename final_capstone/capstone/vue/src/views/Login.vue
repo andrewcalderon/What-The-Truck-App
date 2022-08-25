@@ -18,8 +18,11 @@
 				<router-link v-bind:to="{ name: 'gallery' }">
 					<a class="nav-bar-buttons" href="#gallery">Gallery</a>
 				</router-link>
-				<router-link v-bind:to="{name: 'login' }">
-				<a class="nav-bar-buttons" href="#signup">Login/Signup</a>
+				<router-link v-bind:to="{ name: 'FoodTruckForm' }">
+					<a class="nav-bar-buttons" href="#MyTruck">My Truck</a>
+				</router-link>
+				<router-link v-bind:to="{ name: 'login' }">
+					<a class="nav-bar-buttons" href="#signup">Login/Signup</a>
 				</router-link>
 			</nav>
 		</div>
@@ -33,7 +36,7 @@
 						class="inactive underlineHover cursor-point"
 						v-on:click="showForm = !showForm"
 					>
-						Log In
+						Login
 					</h2>
 					<h2
 						class="inactive underlineHover cursor-point"
@@ -49,14 +52,11 @@
 
 					<!-- Remind Password -->
 
-					<div id="formFooter">
-						<a class="underlineHover" href="#">Forgot Password?</a>
-					</div>
+					<div id="formFooter"></div>
 				</div>
 			</div>
 		</div>
 	</div>
-
 </template>
 
 <script>
@@ -145,6 +145,11 @@
 
 	#login-page {
 		height: 100vh;
+		background-image: url("../images/bg-img-1.png");
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-attachment: fixed;
+		background-position: center;
 	}
 
 	/* Everything below this is the NAV BAR */

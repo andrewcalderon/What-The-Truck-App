@@ -9,19 +9,19 @@
 				placeholder="Create Username"
 			/>
 			<input
-				type="text"
+				type="password"
 				id="register-password-input"
 				class="input-text log-in-input fadeIn third"
 				v-model="newuser.password"
 				placeholder="Create Password"
 			/>
 			<input
-				type="text"
+				type="password"
 				id="register-password-confirm-input"
 				class="input-text log-in-input fadeIn third"
 				name="login"
 				v-model="newuser.confirmPassword"
-				placeholder="Create Password"
+				placeholder="Confirm Password"
 			/>
 			<input
 				type="text"
@@ -34,7 +34,7 @@
 				type="submit"
 				id="submit-input"
 				class="fadeIn fourth"
-				value="Log In"
+				value="Register"
 			/>
 		</form>
 	</div>
