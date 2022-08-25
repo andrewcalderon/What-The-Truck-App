@@ -21,7 +21,13 @@ export default new Vuex.Store({
     token: currentToken || '',
     user: currentUser || {},
     trucks: [
-      
+      {
+        name: '',
+        online: false,
+        truckLat: 0,
+        truckLong: 0
+
+      }
     ]
   },
   mutations: {
@@ -41,6 +47,10 @@ export default new Vuex.Store({
       state.token = '';
       state.user = {};
       axios.defaults.headers.common = {};
+    },
+
+    SAVE_TRUCK(state, truck) {
+      state.trucks.push(truck)
     }
   }
 })

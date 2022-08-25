@@ -12,8 +12,8 @@
 
 			<!-- <div id="menu-bar" class="fas fa-bars"></div> -->
 			<nav class="navbar-links">
-				<router-link v-bind:to="{ name: 'home' }">
-					<a class="nav-bar-buttons" href="#home">Home</a>
+				<router-link v-bind:to="{name: 'home'}">
+				<a class="nav-bar-buttons" href="#home">Home</a>
 				</router-link>
 				<router-link v-bind:to="{ name: 'gallery' }">
 					<a class="nav-bar-buttons" href="#gallery">Gallery</a>
