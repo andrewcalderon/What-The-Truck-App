@@ -26,7 +26,7 @@ const router = new Router({
 			name: "home",
 			component: Home,
 			meta: {
-				requiresAuth: false,
+				requiresAuth: true,
 			},
 		},
 		{
@@ -46,7 +46,7 @@ const router = new Router({
 			},
 		},
 		{
-			path: "/FoodTruckForm",
+			path: "/truck-reg",
 			name: "FoodTruckForm",
 			component: FoodTruckForm,
 			meta: {

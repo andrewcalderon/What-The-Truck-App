@@ -9,7 +9,6 @@ public class Truck {
     @NotEmpty
     public boolean online;
     @NotEmpty
-    public String logo;
     public Long userId;
 
     public Long getId() {
@@ -33,12 +32,12 @@ public class Truck {
         this.online = online;
     }
 
-    public String getLogo() {
-        return logo;
-    }
-    public void setLogo(String logo) {
-        this.logo = logo;
-    }
+//    public String getLogo() {
+//        return logo;
+//    }
+//    public void setLogo(String logo) {
+//        this.logo = logo;
+//    }
 
     public Long getUserId() {
         return userId;
