@@ -2,6 +2,7 @@ import Vue from "vue"
 import Router from "vue-router"
 import Home from "../views/Home.vue"
 import Login from "../views/Login.vue"
+import Logout from "../views/Logout.vue"
 import Gallery from "../views/Gallery.vue"
 import store from "../store/index"
 import FoodTruckForm from "../views/FoodTruckForm.vue"
@@ -27,7 +28,7 @@ const router = new Router({
 			name: "home",
 			component: Home,
 			meta: {
-				requiresAuth: false,
+				requiresAuth: true,
 			},
 		},
 		{
@@ -39,19 +40,27 @@ const router = new Router({
 			},
 		},
 		{
+			path: "/logout",
+			name: "logout",
+			component: Logout,
+			meta: {
+			requiresAuth: false
+			}
+			},	  
+		{
 			path: "/gallery",
 			name: "gallery",
 			component: Gallery,
 			meta: {
-				requiresAuth: false,
+				requiresAuth: true,
 			},
 		},
 		{
-			path: "/FoodTruckForm",
+			path: "/truck-reg",
 			name: "FoodTruckForm",
 			component: FoodTruckForm,
 			meta: {
-				requiresAuth: false,
+				requiresAuth: true,
 			},
 		},
 		{

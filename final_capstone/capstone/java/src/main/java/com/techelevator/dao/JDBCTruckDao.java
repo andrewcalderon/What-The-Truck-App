@@ -46,14 +46,14 @@ public class JDBCTruckDao implements TruckDao{
 
     @Override
     public boolean update(long id, Truck changedTruck) {
-        String updatedRow = "UPDATE trucks SET name = ?, online = ?, logo = ?, user_id = ?, WHERE id = ?";
-        return jdbcTemplate.update(updatedRow, changedTruck.getName(), changedTruck.isOnline(), changedTruck.getLogo(), changedTruck.getUserId(), id) == 1;
+        String updatedRow = "UPDATE trucks SET name = ?, online = ?, user_id = ?, WHERE id = ?";
+        return jdbcTemplate.update(updatedRow, changedTruck.getName(), changedTruck.isOnline(), changedTruck.getUserId(), id) == 1;
     }
 
     @Override
     public Truck createTruck(Truck truck) {
-        String createdTruck = "INSERT INTO trucks (name, online, logo, userId) VALUES (?, ?, ?, ?) RETURNING id;";
-        long id = jdbcTemplate.queryForObject(createdTruck, Integer.class, truck.getName(), truck.isOnline(), truck.getLogo(), truck.getUserId());
+        String createdTruck = "INSERT INTO trucks (name, online, userId) VALUES (?, ?, ?) RETURNING id;";
+        long id = jdbcTemplate.queryForObject(createdTruck, Integer.class, truck.getName(), truck.isOnline(), truck.getUserId());
         truck.setId(id);
         return truck;
     }
@@ -70,7 +70,6 @@ public class JDBCTruckDao implements TruckDao{
         truck.setId(rowSet.getLong("id"));
         truck.setName(rowSet.getString("name"));
         truck.setOnline(rowSet.getBoolean("online"));
-        truck.setLogo(rowSet.getString("logo"));
         truck.setUserId(rowSet.getLong("user_id"));
         return truck;
     }

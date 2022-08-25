@@ -47,8 +47,8 @@
 							this.$store.commit("SET_AUTH_TOKEN", response.data.token)
 							this.$store.commit("SET_USER", response.data.user)
 							this.$router.push("/")
+							console.log("login works")
 						}
-						console.log("login works")
 					})
 					.catch((error) => {
 						const response = error.response

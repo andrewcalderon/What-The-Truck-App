@@ -1,12 +1,22 @@
 <template>
-  <h1>Logout</h1>
+  <login></login>
 </template>
 
 <script>
+import Login from "./Login.vue"
 export default {
-  created() {
-    this.$store.commit("LOGOUT");
+  name: "logout",
+  components: {
+    Login
+  },
+  methods: {
+    logout() {
+      this.$store.commit("LOGOUT");
     this.$router.push("/login");
+    }
+  },
+  created() {
+    this.logout();
   }
 };
 </script>
