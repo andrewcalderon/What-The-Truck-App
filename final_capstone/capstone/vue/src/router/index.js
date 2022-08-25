@@ -2,6 +2,7 @@ import Vue from "vue"
 import Router from "vue-router"
 import Home from "../views/Home.vue"
 import Login from "../views/Login.vue"
+import Logout from "../views/Logout.vue"
 import Gallery from "../views/Gallery.vue"
 import store from "../store/index"
 import FoodTruckForm from "../views/FoodTruckForm.vue"
@@ -37,6 +38,14 @@ const router = new Router({
 				requiresAuth: false,
 			},
 		},
+		{
+			path: "/logout",
+			name: "logout",
+			component: Logout,
+			meta: {
+			requiresAuth: false
+			}
+			},	  
 		{
 			path: "/gallery",
 			name: "gallery",
