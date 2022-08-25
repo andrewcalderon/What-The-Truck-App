@@ -14,7 +14,7 @@
 				placeholder="Enter Food Type"
 			/>
 			<input
-				type="text"
+				type="password"
 				id="register-Permit-input"
 				class="input-text log-in-input fadeIn third"
 				placeholder="Enter Permit #"
@@ -22,8 +22,9 @@
 			<input
 				type="submit"
 				id="submit-input"
+				style="background-color: green;"
 				class="fadeIn fourth"
-				value="Register"
+				value="Go Online"
 			/>
 		</form>
 	</div>

@@ -9,7 +9,7 @@
 				placeholder="Enter Username"
 			/>
 			<input
-				type="text"
+				type="password"
 				id="password-input"
 				class="input-text log-in-input fadeIn third"
 				v-model="user.password"
@@ -163,7 +163,8 @@
 		transform: scale(0.95);
 	}
 
-	input[type="text"] {
+	input[type="text"],
+	input[type="password"] {
 		background-color: #f6f6f6;
 		border: none;
 		color: #0d0d0d;

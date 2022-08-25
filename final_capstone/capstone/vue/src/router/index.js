@@ -5,6 +5,7 @@ import Login from "../views/Login.vue"
 import Gallery from "../views/Gallery.vue"
 import store from "../store/index"
 import FoodTruckForm from "../views/FoodTruckForm.vue"
+import Profile from "../views/Profile.vue"
 
 Vue.use(Router)
 
@@ -49,6 +50,14 @@ const router = new Router({
 			path: "/FoodTruckForm",
 			name: "FoodTruckForm",
 			component: FoodTruckForm,
+			meta: {
+				requiresAuth: false,
+			},
+		},
+		{
+			path: "/Profile",
+			name: "Profile",
+			component: Profile,
 			meta: {
 				requiresAuth: false,
 			},
