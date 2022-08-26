@@ -1,17 +1,19 @@
 <template>
 	<div>
-		<form @submit.prevent="register">
+		<form @submit.prevent="saveTruck">
 			<input
 				type="text"
 				id="register-truck-input"
 				class="input-text log-in-input fadeIn second"
 				placeholder="Enter Foodtruck Name"
+				v-model="foodtruck.name"
 			/>
 			<input
 				type="text"
 				id="register-Foodtype-input"
 				class="input-text log-in-input fadeIn third"
 				placeholder="Enter Food Type"
+				v-model="foodtruck.type"
 			/>
 			<input
 				type="password"
@@ -31,15 +33,15 @@
 </template>
 
 <script>
+	import foodtruck from "../services/FoodTruck.js"
 	export default {
 		name: "FoodTruckRegForm",
 		data() {
 			return {
-				truck: {
+				foodtruck: {
 					name: "",
-					foodType: "",
-					permit: "",
-					online: false
+					type: "",
+					online: true,
 				},
 				registrationErrors: false,
 				registrationErrorMsg: "There were problems registering this user.",
@@ -47,16 +49,20 @@
 		},
 		methods: {
 			saveTruck() {
-            this.$store.commit('SAVE_TRUCK', this.truck);
-            this.truck = {
-                name: '',
-                foodType: "",
-                online: false,
-            }
-            this.$router.push({ name: 'myTruck'})
-        }
+				foodtruck
+					.create(this.foodtruck)
+					.then((res) => {
+						if (res.status == 201) {
+							alert("Foodtruck Created!")
+							this.$router.push("/")
+						}
+					})
+					.catch((err) => {
+						console.log(err + " something wrong", this.foodtruck)
+					})
+			},
+		},
 	}
-}
 </script>
 
 <style>
