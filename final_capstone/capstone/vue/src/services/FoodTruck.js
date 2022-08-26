@@ -23,8 +23,8 @@ export default {
 
 	// delete a foodtruck to endpoint /deleteFoodtruck/id
 
-	delete(id) {
-		console.log(id)
-		return axios.delete(`/api/deleteFoodtruck/${id}`)
+	delete(name) {
+		console.log(name)
+		return axios.delete(`/api/deleteFoodtruck/${name}`)
 	},
 }

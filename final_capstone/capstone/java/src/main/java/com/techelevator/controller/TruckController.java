@@ -40,6 +40,13 @@ public class TruckController {
 //        logTimestamp("Removing truck " + id);
     }
 
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @DeleteMapping("/deleteFoodtruck/{name}")
+    public void deleteTruckByName(@PathVariable String name) {
+        theTruck.deleteTruckByName(name);
+//        logTimestamp("Removing truck " + id);
+    }
+
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/addFoodtruck")
     public void addNewTruck(@RequestBody Truck newTruck) {

@@ -14,7 +14,8 @@
 							<p class="food-type-p">Food Type:</p>
 							<h6>{{ foodtruck.type }}</h6>
 						</div>
-						<h6>Location</h6>
+						<button>Go Online</button>
+						<button v-on:click="delete foodtruck.name">Delete</button>
 					</div>
 
 					<div class="td-icons">
@@ -42,6 +43,17 @@
 				.catch((err) => {
 					console.error(err + " uh oh missing foodtrucks")
 				})
+		},
+		methods: {
+			delete(name) {
+				Foodtruck.delete(name)
+					.then((res) => {
+						console.log(res)
+					})
+					.catch(function(error) {
+						console.log(error.response)
+					})
+			},
 		},
 	}
 </script>

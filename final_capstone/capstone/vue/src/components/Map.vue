@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<!-- <div style="display: flex; align-items: center; justify-content: space-between">
+		<!-- <div style=“display: flex; align-items: center; justify-content: space-between”>
         <div>
             <h1>Your coordinates:</h1>
             <p>{{ myCoordinates.lat }} Latitude, {{ myCoordinates.lng }} Longitude</p>
@@ -10,7 +10,7 @@
             <p>{{ mapCoordinates.lat }} Latitude, {{ mapCoordinates.lng}} Longitude</p>
         </div>
     </div> -->
-		<!-- <button @click="addMarker">
+		<!-- <button @click=“addMarker”>
         add markers
     </button> -->
 		<GmapMap
@@ -24,13 +24,11 @@
 				:key="index"
 				v-for="(m, index) in markers"
 				:position="m.position"
-				:icon="fa - circle - check"
 			>
 			</gmap-marker>
 		</GmapMap>
 	</div>
 </template>
-
 <script>
 	export default {
 		name: "Map",
@@ -47,20 +45,18 @@
 				// places: []
 			}
 		},
-
 		created() {
 			//check if user has saved center
 			if (localStorage.center) {
 				this.myCoordinates = JSON.parse(localStorage.center)
 			} else {
-				//get user's coordinates
+				//get user’s coordinates
 				this.$getLocation({})
 					.then((coordinates) => {
 						this.myCoordinates = coordinates
 					})
 					.catch((error) => alert(error))
 			}
-
 			//check if user has saved zoom
 			if (localStorage.zoom) {
 				this.zoom = parseInt(localStorage.zoom)
@@ -95,7 +91,6 @@
 					lng: this.map.getCenter().lng(),
 				}
 				let zoom = this.map.getZoom()
-
 				localStorage.center = JSON.stringify(center)
 				localStorage.zoom = zoom
 			},
@@ -108,7 +103,6 @@
 						lng: 0,
 					}
 				}
-
 				return {
 					lat: this.map
 						.getCenter()
@@ -123,7 +117,6 @@
 		},
 	}
 </script>
-
 <style>
 	#map-css {
 		/* width:640px; height:360px; margin: 32px auto; */

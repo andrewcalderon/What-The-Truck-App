@@ -12,6 +12,7 @@ CREATE TABLE users (
 CREATE TABLE trucks (
     id SERIAL PRIMARY KEY,
     name varchar(300) NOT NULL,
+    foodtype varchar(50) NOT NULL,
     online boolean NOT NULL,
     truck_lat decimal,
     truck_long decimal,

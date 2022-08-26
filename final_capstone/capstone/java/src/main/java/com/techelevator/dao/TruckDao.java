@@ -15,4 +15,6 @@ public interface TruckDao {
     boolean update(long id, Truck truck);
 
     boolean deleteTruck(long id);
+
+    boolean deleteTruckByName(String name);
 }

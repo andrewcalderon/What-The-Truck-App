@@ -7,6 +7,7 @@ public class Truck {
     @NotEmpty
     public String name;
     @NotEmpty
+    public String type;
     public boolean online;
     @NotEmpty
     public Long userId;
@@ -23,6 +24,13 @@ public class Truck {
     }
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getType() {
+        return type;
+    }
+    public void setType(String type) {
+        this.type = type;
     }
 
     public boolean isOnline() {

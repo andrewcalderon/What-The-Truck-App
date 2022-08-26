@@ -1,0 +1,44 @@
+{
+	"Trucks": [
+		{
+			"name": "",
+			"type": "",
+			"coordinates": {
+				"longitude": 36.13027233297412,
+				"latitude": -115.1900573717724
+			}
+		},
+		{
+			"name": "",
+			"type": "",
+			"coordinates": {
+				"longitude": 36.28444458052776,
+				"latitude": -115.28359268475911
+			}
+		},
+		{
+			"name": "",
+			"type": "",
+			"coordinates": {
+				"longitude": 36.13027233297412,
+				"latitude": -115.1900573717724
+			}
+		},
+		{
+			"name": "",
+			"type": "",
+			"coordinates": {
+				"longitude": 36.21754571399567,
+				"latitude": -115.09113532230523
+			}
+		},
+		{
+			"name": "",
+			"type": "",
+			"coordinates": {
+				"longitude": 36.22528382784651,
+				"latitude": -115.10292133859932
+			}
+		}
+	]
+}

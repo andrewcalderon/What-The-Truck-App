@@ -46,14 +46,14 @@ public class JDBCTruckDao implements TruckDao{
 
     @Override
     public boolean update(long id, Truck changedTruck) {
-        String updatedRow = "UPDATE trucks SET name = ?, online = ?, user_id = ?, WHERE id = ?";
-        return jdbcTemplate.update(updatedRow, changedTruck.getName(), changedTruck.isOnline(), changedTruck.getUserId(), id) == 1;
+        String updatedRow = "UPDATE trucks SET name = ?, foodtype = ?, online = ?, user_id = ?, WHERE id = ?";
+        return jdbcTemplate.update(updatedRow, changedTruck.getName(), changedTruck.getType(), changedTruck.isOnline(), changedTruck.getUserId(), id) == 1;
     }
 
     @Override
     public Truck createTruck(Truck truck) {
-        String createdTruck = "INSERT INTO trucks (name, online, userId) VALUES (?, ?, ?) RETURNING id;";
-        long id = jdbcTemplate.queryForObject(createdTruck, Integer.class, truck.getName(), truck.isOnline(), truck.getUserId());
+        String createdTruck = "INSERT INTO trucks (name, foodtype, online, user_id) VALUES (?, ?, ?, ?) RETURNING id;";
+        long id = jdbcTemplate.queryForObject(createdTruck, Integer.class, truck.getName(), truck.getType(), truck.isOnline(), truck.getUserId());
         truck.setId(id);
         return truck;
     }
@@ -64,11 +64,18 @@ public class JDBCTruckDao implements TruckDao{
         return jdbcTemplate.update(deletedTruck, id) == 1;
     }
 
+    @Override
+    public boolean deleteTruckByName(String name) {
+        String deletedTruck = "DELETE FROM trucks WHERE name = ?";
+        return jdbcTemplate.update(deletedTruck, name) == 1;
+    }
+
 
     private Truck mapRowToTruck(SqlRowSet rowSet) {
         Truck truck = new Truck();
         truck.setId(rowSet.getLong("id"));
         truck.setName(rowSet.getString("name"));
+        truck.setType(rowSet.getString("foodtype"));
         truck.setOnline(rowSet.getBoolean("online"));
         truck.setUserId(rowSet.getLong("user_id"));
         return truck;
